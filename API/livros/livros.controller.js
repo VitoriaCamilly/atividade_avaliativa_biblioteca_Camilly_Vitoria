@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const clientesHandler = require("./clientes.handler");
+const livrosHandler = require("./livros.handler");
 
 router.post("/", async (req, res) => {
     const body = req.body;
-    const dadosSalvos = await clientesHandler.addCliente(body);
+    const dadosSalvos = await livrosHandler.addLivro(body);
     res.json(dadosSalvos);
-})
+});
 
 router.get("/", async (req, res) => {
-    const dados = await clientesHandler.mostrarClientes();
+    const dados = await livrosHandler.mostrarLivros();
     res.json(dados);
 });
 

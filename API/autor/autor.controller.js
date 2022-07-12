@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const clientesHandler = require("./clientes.handler");
+const autorHandler = require("./autor.handler");
 
 router.post("/", async (req, res) => {
     const body = req.body;
-    const dadosSalvos = await clientesHandler.addCliente(body);
+    const dadosSalvos = await autorHandler.addAutor(body);
     res.json(dadosSalvos);
-})
-
-router.get("/", async (req, res) => {
-    const dados = await clientesHandler.mostrarClientes();
-    res.json(dados);
 });
 
+router.get("/", async (req, res) => {
+    const dados = await autorHandler.mostrarAutores();
+    res.json(dados);
+});
 
 module.exports = router;
