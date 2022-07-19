@@ -11,6 +11,6 @@ async function mostrarEscritores(){
 }
 
 module.exports = {
-    addEditora,
-    mostrarEditora
+    salvar,
+    mostrarEscritores
 }

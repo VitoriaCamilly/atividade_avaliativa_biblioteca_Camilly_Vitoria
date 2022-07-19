@@ -45,13 +45,9 @@ async function save(nomeTabela, id, dado) {
 
 async function get(nomeTabela) {
   const tableRef = collection(db, nomeTabela);
-
   const q = query(tableRef);
-
   const querySnapshot = await getDocs(q);
-
   const lista = [];
-
   querySnapshot.forEach((doc) => {
       const data = {
           ...doc.data(),
@@ -65,7 +61,6 @@ async function get(nomeTabela) {
 async function getById(nomeTabela, id) {
   const docRef = doc(db, nomeTabela, id);
   const docSnap = await getDoc(docRef);
-
   if (docSnap.exists()) {
       return docSnap.data();
   } else {

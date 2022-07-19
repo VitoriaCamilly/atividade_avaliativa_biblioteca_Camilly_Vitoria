@@ -12,4 +12,8 @@ router.use("/editora", editora);
 
 const livros = require("./API/livros/livros.controller");
 router.use("/livros", livros);
+
+const locar = require("./API/locacao/locacao.controller");
+router.use("/alugar", locar);
+
 module.exports = router;
