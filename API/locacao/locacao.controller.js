@@ -4,8 +4,9 @@ const router = express.Router();
 const locacaoHandler = require("./locacao.handler");
 
 router.post("/", async (req, res) => { 
-    const body = req.body;
-    const dados = await locacaoHandler.salvarAluguel(body);
+    const idCliente = req.body.idCliente;
+    const idLivro = req.body.idLivro;
+    const dados = await locacaoHandler.validarAluguel(idCliente, idLivro);
     res.json(dados);
 });
 

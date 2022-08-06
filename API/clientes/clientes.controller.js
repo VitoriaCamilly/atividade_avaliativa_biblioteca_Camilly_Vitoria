@@ -14,12 +14,5 @@ router.get("/", async (req, res) => {
     res.json(dados);
 });
 
-router.post("/alugar", async (req, res) => { 
-    const body = req.body;
-    console.log(body);
-    const dados = await clientesHandler.alugarLivros(body);
-    res.json(dados);
-});
-
 
 module.exports = router;

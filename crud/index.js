@@ -43,6 +43,24 @@ async function save(nomeTabela, id, dado) {
   }
 }
 
+async function saveAlugar(nomeTabela, id, listaLivros, idCliente) {
+  if (id) {
+      const referenceEntity = await setDoc(doc(db, nomeTabela, id), listaLivros, idCliente);
+      const savedData = {
+          ...listaLivros, idCliente,
+          id: id
+      }
+      return savedData;
+  } else {
+      const referenceEntity = await addDoc(collection(db, nomeTabela), listaLivros, idCliente);
+      const savedData = {
+          ...listaLivros, idCliente,
+          id: referenceEntity.id
+      }
+      return savedData;
+  }
+}
+
 async function get(nomeTabela) {
   const tableRef = collection(db, nomeTabela);
   const q = query(tableRef);
@@ -64,7 +82,7 @@ async function getById(nomeTabela, id) {
   if (docSnap.exists()) {
       return docSnap.data();
   } else {
-      return new Error("Not found!")
+      return undefined;
   }
 }
 
@@ -79,5 +97,6 @@ module.exports = {
   save,
   get, 
   getById,
-  remove
+  remove,
+  saveAlugar
 }
