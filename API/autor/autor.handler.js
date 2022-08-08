@@ -1,8 +1,12 @@
 const crud = require('../../crud')
 
 async function addAutor(autor){
-    const dadosSalvos = await crud.save("autor", undefined, autor);
-    return dadosSalvos;
+    if (autor.nome != undefined){
+        const dadosSalvos = await crud.save("autor", undefined, autor);
+        return dadosSalvos;
+    } else {
+        return "É necessário informar ao menos o nome do autor!";
+    }
 }
 
 async function mostrarAutores(){

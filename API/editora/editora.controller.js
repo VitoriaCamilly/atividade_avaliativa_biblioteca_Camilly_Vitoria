@@ -4,8 +4,7 @@ const router = express.Router();
 const editoraHandler = require("./editora.handler");
 
 router.post("/", async (req, res) => {
-    const body = req.body;
-    const dadosSalvos = await editoraHandler.addEditora(body);
+    const dadosSalvos = await editoraHandler.adicionarEditora(req.body);
     res.json(dadosSalvos);
 });
 

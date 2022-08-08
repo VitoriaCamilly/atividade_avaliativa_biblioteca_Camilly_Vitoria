@@ -4,8 +4,7 @@ const router = express.Router();
 const autorHandler = require("./autor.handler");
 
 router.post("/", async (req, res) => {
-    const body = req.body;
-    const dadosSalvos = await autorHandler.addAutor(body);
+    const dadosSalvos = await autorHandler.addAutor(req.body);
     res.json(dadosSalvos);
 });
 
