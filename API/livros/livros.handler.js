@@ -59,8 +59,6 @@ async function adicionarLivro(livro) {
     }
 }
 
-
-
 async function mostrarLivros() {
     const mostrar = await crud.get("livro");
     return mostrar;

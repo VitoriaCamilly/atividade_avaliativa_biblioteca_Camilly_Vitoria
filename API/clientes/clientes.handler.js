@@ -26,7 +26,13 @@ async function mostrarClientes() {
     return mostrar;
 }
 
+async function mostrarClienteID(id){
+    const mostrarId = await crud.getById("cliente", id);
+    return mostrarId;
+}
+
 module.exports = {
     adicionarCliente,
-    mostrarClientes
+    mostrarClientes,
+    mostrarClienteID
 }

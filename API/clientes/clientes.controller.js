@@ -13,4 +13,9 @@ router.get("/", async (req, res) => {
     res.json(dados);
 });
 
+router.get("/", async (req, res) => {
+    const dados = await clientesHandler.mostrarClienteID(req.body.id);
+    res.json(dados);
+});
+
 module.exports = router;
